@@ -1,5 +1,5 @@
-import Header from '../Header/Header'
-import Products from '../Products/Products'
+import Header from './Header/Header'
+import Products from './Products/Products'
 function Main() {
     return (
     <div>
