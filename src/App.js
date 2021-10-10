@@ -1,5 +1,6 @@
 import './App.css';
-import Main from './components/Main';
+import Header from './components/Header/Header';
+import Products from './components/Products/Products';
 import React from "react"
 function App() {
 
@@ -248,7 +249,8 @@ function App() {
   ]
   return (
     <div className="App">
-      <Main products={products}></Main>
+      <Header />
+      <Products products={products}/>
     </div>
   );
 }
