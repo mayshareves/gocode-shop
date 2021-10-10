@@ -2,6 +2,8 @@ import './App.css';
 import Header from './components/Header/Header';
 import Products from './components/Products/Products';
 import React from "react"
+import { useState } from "react"
+
 function App() {
 
   const products =
@@ -247,10 +249,14 @@ function App() {
       }
     }
   ]
+  const [text, setText] = useState("hello");
+  const [apeare, setAppeare] = useState(true);
   return (
     <div className="App">
-      <Header />
-      <Products products={products}/>
+      {text}
+       <button onClick={() => { !apeare? setText(""):setText("hello"); setAppeare(!apeare);}}>click me</button>
+      {/* <Header />
+      <Products products={products}/> */}
     </div>
   );
 }
