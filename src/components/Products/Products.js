@@ -1,18 +1,11 @@
 import Product from "../Product/Product";
 import './Products.css';
-function Products() {
+function Products(props) {
     return (
         <div className="products">
-            <Product></Product>
-            <Product></Product>
-            <Product></Product>
-            <Product></Product>
-            <Product></Product>
-            <Product></Product>
-            <Product></Product>
-            <Product></Product>
-            <Product></Product>
-            <Product></Product>
+            {props.products.map(product=>(
+                <Product key={product.id} product={product}></Product>
+            ))}
         </div>
     )
 }

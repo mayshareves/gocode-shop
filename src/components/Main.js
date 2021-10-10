@@ -1,10 +1,10 @@
 import Header from './Header/Header'
 import Products from './Products/Products'
-function Main() {
+function Main(props) {
     return (
     <div>
         <Header />
-        <Products />
+        <Products products={props.products}/>
       </div>
     )
 }
