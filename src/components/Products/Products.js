@@ -4,7 +4,7 @@ function Products(props) {
     return (
         <div className="products">
             {props.products.map(product=>(
-                <Product key={product.id} product={product}></Product>
+                <Product key={product.id} image={product.image} title={product.title} price={product.price}></Product>
             ))}
         </div>
     )
