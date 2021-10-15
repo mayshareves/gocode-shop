@@ -1,20 +1,16 @@
 import './Header.css'
-function Header() {
+function Header({categories, onSelectCategory}) {
     return (
         <nav className="product-filter">
             <h1>Products</h1>
             <div className="sort">
                 <div className="collection-sort">
                     <label>Filter by:</label>
-                    <select>
-                    <option value="/">All Jackets</option>
-                    <option value="/">2016</option>
-                    <option value="/">jacket</option>
-                    <option value="/">Jackets</option>
-                    <option value="/">layers</option>
-                    <option value="/">Obermeyer</option>
-                    <option value="/">Roxy</option>
-                    <option value="/">womens</option>
+                    <select onChange={(e)=>onSelectCategory(e.target.value)}>
+                        <option value="/">Select</option>
+                        {categories.map((category, index) => (
+                            <option key={index} value={category} >{category}</option>
+                        ))}
                     </select>
                 </div>
 
