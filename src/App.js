@@ -10,6 +10,7 @@ function App() {
   const [products, setProducts] = useState([]);
   const [allProducts, setAllProducts] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [displaySpinner, setDisplaySpinner] = useState(true);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -19,9 +20,9 @@ function App() {
       .then((products) => {
         setProducts(products);
         setAllProducts(products);
-        let categories = products.map(p => p.category).filter((value, index, array) => array.indexOf(value)===index);
-        console.log(111, categories)
+        let categories = products.map(p => p.category).filter((value, index, array) => array.indexOf(value) === index);
         setCategories(categories)
+        setDisplaySpinner(false)
       });
   }, []);
   
@@ -39,6 +40,9 @@ function App() {
      {/* <Button/> */}
       <Header categories={categories} onSelectCategory={categorySelected}/>
       <Products products={products}/>
+      {displaySpinner && <div className="example">
+        <span className="smooth spinner" />
+      </div>}
     </div>
   );
 }
