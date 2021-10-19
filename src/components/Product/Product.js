@@ -3,6 +3,7 @@ import MyContext from '../../MyContext';
 import Button from '@mui/material/Button';
 
 import './Product.css';
+import { Link } from 'react-router-dom';
 function Product({image, title, price, id}) {
     const [productsInCart, setProductsInCart] = useContext(MyContext);
     const getAmount = () => {
@@ -12,6 +13,7 @@ function Product({image, title, price, id}) {
     }
     return (
         <div className="product-card ">
+            <Link to={`/product/${id}`}>
             <div className="product-image">
                 <img alt="" src={image} />
             </div>
@@ -19,6 +21,7 @@ function Product({image, title, price, id}) {
                 <h5>{title}</h5>
                 <h6>{`$ ${price}`}</h6>
             </div>
+            </Link>
             <div>
                 <Button varient="outlined" onClick={()=>{
                     let newProductsList = [];

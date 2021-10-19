@@ -18,6 +18,7 @@ import {
 
 import Home from './pages/Home';
 import ProductsPage from './pages/Products'
+import ProductPage from './pages/product';
 
 function App() {
 
@@ -44,6 +45,9 @@ function App() {
         <Switch>         
             <Route path="/products">
              <ProductsPage></ProductsPage>
+            </Route>
+            <Route path="/product/:id">
+             <ProductPage></ProductPage>
             </Route>
             <Route path="/">
               <Home />
