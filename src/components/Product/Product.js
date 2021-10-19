@@ -3,9 +3,13 @@ import MyContext from '../../MyContext';
 import Button from '@mui/material/Button';
 
 import './Product.css';
-function Product({image, title, price, id, amount}) {
+function Product({image, title, price, id}) {
     const [productsInCart, setProductsInCart] = useContext(MyContext);
-
+    const getAmount = () => {
+        let findProduct = productsInCart.find((product) => product.id === id)
+        if(findProduct) return findProduct.amount;
+        return ''
+    }
     return (
         <div className="product-card ">
             <div className="product-image">
@@ -32,8 +36,8 @@ function Product({image, title, price, id, amount}) {
                     }
                     console.log(111, newProductsList)
                     setProductsInCart(newProductsList)}}>+</Button>
-                <span>{amount}</span>
-                {amount && <Button varient="contained" onClick={()=>{
+                <span>{getAmount()}</span>
+                <Button varient="contained" onClick={()=>{
                     let newProductsList = [];
                     // If exist
                     let findIndex = productsInCart.findIndex((product)=> product.id === id)
@@ -55,9 +59,8 @@ function Product({image, title, price, id, amount}) {
                         }
                     } else { // not exists
                         newProductsList = [...productsInCart]
-                        //newProductsList = [...productsInCart, {id, title, price, image, amount: 1}]
                     }
-                    setProductsInCart(newProductsList)}}>-</Button>}
+                    setProductsInCart(newProductsList)}}>-</Button>
             </div>
         </div>
     )

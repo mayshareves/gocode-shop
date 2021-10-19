@@ -1,7 +1,5 @@
 import './App.css';
-import Header from './components/Header/Header';
-import Products from './components/Products/Products';
-import Cart from './components/Cart/Cart';
+
 import React from "react"
 // import Button from './Button';
 import { useEffect, useState } from "react";
@@ -10,50 +8,50 @@ import MyContext from './MyContext';
 //https://mui.com/getting-started/usage/
 
 // https://gocode-shop-noam.herokuapp.com/
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
+import Home from './pages/Home';
+import ProductsPage from './pages/Products'
+
 function App() {
 
-  const [products, setProducts] = useState([]);
-  const [allProducts, setAllProducts] = useState([]);
-  const [categories, setCategories] = useState([]);
-  const [displaySpinner, setDisplaySpinner] = useState(true);
+
+
+
   const [productsInCart, setProductsInCart] = useState([]);
 
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => {
-        return res.json();
-      })
-      .then((products) => {
-        setProducts(products);
-        setAllProducts(products);
-        let categories = products.map(p => p.category).filter((value, index, array) => array.indexOf(value) === index);
-        setCategories(categories)
-        setDisplaySpinner(false)
-      });
-  }, []);
-  
-  const categorySelected = (category) =>{
-    if(category === '/') {
-      setProducts(allProducts);
-    } else {
-      let filteredProducts = allProducts.filter((product) => product.category === category);
-      setProducts(filteredProducts);
-    }
-  }
 
   return (
-    <MyContext.Provider value={[productsInCart, setProductsInCart]}>
-    <div className="App">
-     {/* <Button/> */}
-      <Header categories={categories} onSelectCategory={categorySelected}/>
-     <Cart/>
-     <hr/>
-      <Products products={products}/>
-      {displaySpinner && <div className="example">
-        <span className="smooth spinner" />
-      </div>}
-    </div>
-    </MyContext.Provider>
+    <Router>
+      <MyContext.Provider value={[productsInCart, setProductsInCart]}>
+      <div className="App">
+       <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/products">Products</Link>
+            </li>
+          </ul>
+        </nav>
+        <Switch>         
+            <Route path="/products">
+             <ProductsPage></ProductsPage>
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
+        </Switch>
+        </div>
+      </MyContext.Provider>
+    </Router>
   );
 }
 
