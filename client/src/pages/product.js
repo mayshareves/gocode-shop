@@ -7,7 +7,8 @@ function ProductPage() {
     const [product, setProduct] = useState(null);
     let size = {maxHeight: '300px', maxWidth: '300px'}
     useEffect(() => {
-      fetch(`https://fakestoreapi.com/products/${id}`)
+        console.log(22, id)
+      fetch(`/api/product/${id}`)
         .then((res) => res.json())
         .then((res) => {
             setProduct(res);

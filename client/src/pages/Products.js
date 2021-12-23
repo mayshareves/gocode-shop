@@ -14,11 +14,13 @@ function ProductsPage(){
 
 
     useEffect(() => {
-        fetch("https://fakestoreapi.com/products")
+        // fetch("https://fakestoreapi.com/products")
+        fetch("/api/products")
           .then((res) => {
             return res.json();
           })
           .then((products) => {
+            console.log(products)
             setProducts(products);
             setAllProducts(products);
             let categories = products.map(p => p.category).filter((value, index, array) => array.indexOf(value) === index);

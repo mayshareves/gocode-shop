@@ -2,6 +2,7 @@ import { useContext } from "react";
 import MyContext from '../../MyContext';
 import Button from '@mui/material/Button';
 
+
 import './Product.css';
 import { Link } from 'react-router-dom';
 function Product({image, title, price, id}) {
