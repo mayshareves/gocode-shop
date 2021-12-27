@@ -127,9 +127,6 @@ const initTodos = () => {
         }
     })
 }
-// TODO 
-//change in client to /api
-// שיעור Deploy 1:30
 
 // npm run dev
 
