@@ -13,10 +13,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 
-import Home from './pages/Home';
 import ProductsPage from './pages/Products'
 import ProductPage from './pages/product';
 
@@ -32,16 +30,6 @@ function App() {
     <Router>
       <MyContext.Provider value={[productsInCart, setProductsInCart]}>
       <div className="App">
-       <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/products">Products</Link>
-            </li>
-          </ul>
-        </nav>
         <Switch>         
             <Route path="/products">
              <ProductsPage></ProductsPage>
@@ -50,7 +38,7 @@ function App() {
              <ProductPage></ProductPage>
             </Route>
             <Route path="/">
-              <Home />
+              <ProductsPage/>
             </Route>
         </Switch>
         </div>

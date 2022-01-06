@@ -17,7 +17,7 @@ function ProductPage() {
     }, [id]);
     return (
         <div style={size}>
-            <Product image={product?.image} title={product?.title} price={product?.price} id={product?.id}></Product>
+            <Product image={product?.image} title={product?.title} price={product?.price} id={product?._id}></Product>
         </div>
     )
 }
