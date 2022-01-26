@@ -107,7 +107,7 @@ function App() {
                       <ShoppingCartIcon />
                     </Badge>
                   </IconButton>
-                  <IconButton
+                  {/* <IconButton
                     size="large"
                     edge="end"
                     aria-label="account of current user"
@@ -116,7 +116,7 @@ function App() {
                     color="inherit"
                   >
                     <AccountCircle />
-                  </IconButton>
+                  </IconButton> */}
                 </Box>
               </Toolbar>
             </AppBar>
@@ -138,7 +138,7 @@ function App() {
           <Drawer
             anchor={'right'}
             open={openDrawer}
-            onClose={()=>{console.log(111);setOpenDrawer(false)}}
+            onClose={()=>{setOpenDrawer(false)}}
           >
             <Cart />
           </Drawer>

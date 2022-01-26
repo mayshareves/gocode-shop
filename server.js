@@ -63,10 +63,9 @@ app.get("/api/product/:id", (req, res) => {
 app.post("/api/products", (req, res) => {
 
    const product = new Product(req.body)
-   Product.save((err, product) => {
+   product.save((err, product) => {
        res.send(product)
    })
-
 })
 
 // Update product
@@ -85,7 +84,6 @@ app.put("/api/product/:id", (req, res) => {
 // Delete product
 app.delete("/api/product/:id", (req, res) => {
    const { id } = req.params;
-
    Product.findByIdAndDelete(id, (err, product)=>{
        res.send(product)
    })

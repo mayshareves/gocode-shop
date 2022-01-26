@@ -48,7 +48,6 @@ function ProductsPage(){
     return  (
         <div>
              <Header categories={categories} onSelectCategory={categorySelected} onFilterPrice={filterByPrice} />
-              <Cart />
               <hr />
               <Products products={products} />
               {displaySpinner && <div className="example">
