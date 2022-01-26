@@ -75,7 +75,7 @@ function Product({image, title, price, id, amount}) {
             <Typography variant="body2" color="text.secondary">
               {title}
             </Typography>
-            <div class="price">{price} $</div>
+            <div className="price">{price} $</div>
           </CardContent>
         </CardActionArea>
         </Link>

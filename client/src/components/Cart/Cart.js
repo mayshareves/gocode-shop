@@ -1,12 +1,11 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import MyContext from '../../MyContext';
 import Products from '../Products/Products'
 function Cart() {
-    const [productsInCart, setProductsInCart] = useContext(MyContext);
+    const [productsInCart] = useContext(MyContext);
 
     return (
-        <div>
-            <h2>My Cart</h2>
+        <div style={{maxWidth: "500px"}}>
             <Products products={productsInCart}/>
         </div>
     )

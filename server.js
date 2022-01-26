@@ -63,17 +63,17 @@ app.get("/api/product/:id", (req, res) => {
 app.post("/api/products", (req, res) => {
 
    const product = new Product(req.body)
-   product.save((err, product) => {
+   Product.save((err, product) => {
        res.send(product)
    })
 
 })
 
-// Update title of product
+// Update product
 app.put("/api/product/:id", (req, res) => {
    const { id } = req.params;
-   const { title, description } = req.body;
-   Product.findByIdAndUpdate(id, {title, description}, {new: true}, (err, product) => {
+   const product = req.body;
+   Product.findByIdAndUpdate(id, product, {new: true}, (err, product) => {
        if(err){
            console.log("err: ", err)
        }
